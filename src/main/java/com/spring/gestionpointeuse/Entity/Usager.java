@@ -7,7 +7,6 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -31,6 +30,13 @@ public class Usager implements Serializable {
     private Sexe sexe;
     private Date dateNaissance;
     private Date dateInscrit;
+
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idUsager")
+    @ApiModelProperty(hidden = true)
+//    @JsonIgnoreProperties(value = {"produit"}, allowGetters = true)
+    private List<Fonctionalitie> fonctionalities;
 
     public Usager() {
         dateNaissance = new Date();
