@@ -38,6 +38,11 @@ public class Usager implements Serializable {
 //    @JsonIgnoreProperties(value = {"produit"}, allowGetters = true)
     private List<Fonctionalitie> fonctionalities;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "idRole")
+//    @JsonIgnoreProperties({"services"})
+    private Role role;
+
     public Usager() {
         dateNaissance = new Date();
     }
