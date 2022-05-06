@@ -22,6 +22,7 @@ public class UsagerServiceImpl implements IUsagerService , ICrudService<Usager,L
     @Override
     public Usager add(Usager usager) {
         usager.setPassword(bcryptEncoder.encode(usager.getPassword()));
+
         return usagerRepository.save(usager);
     }
 
@@ -60,9 +61,6 @@ public class UsagerServiceImpl implements IUsagerService , ICrudService<Usager,L
     public Usager findById(Long aLong) {
         return usagerRepository.findById(aLong).get();
     }
-    @Bean
-    public BCryptPasswordEncoder encoder(){
-        return new BCryptPasswordEncoder();
-    }
+
 
 }

@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.apache.tomcat.jni.Address;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -26,7 +27,6 @@ public class Usager implements Serializable {
     private String empreinte;
     private String badge;
     private String numero;
-
     private Sexe sexe;
     private Date dateNaissance;
     private Date dateInscrit;
@@ -37,6 +37,14 @@ public class Usager implements Serializable {
     @ApiModelProperty(hidden = true)
 //    @JsonIgnoreProperties(value = {"produit"}, allowGetters = true)
     private List<Fonctionalitie> fonctionalities;
+
+
+
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade =  CascadeType.ALL,
+            mappedBy = "usager")
+    private Details details;
+
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idRole")

@@ -23,10 +23,8 @@ public class Fonction implements Serializable {
 //    @JsonIgnoreProperties(value = {"produit"}, allowGetters = true)
     private List<Fonctionalitie> fonctionalities = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "idCompany")
-//    @JsonIgnoreProperties({"services"})
-    private Company company;
 
-
+    public Fonction(String designation) {
+        this.designation = designation;
+    }
 }

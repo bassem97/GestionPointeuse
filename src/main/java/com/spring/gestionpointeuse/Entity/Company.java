@@ -23,5 +23,7 @@ public class Company implements Serializable {
 //    @JsonIgnoreProperties(value = {"produit"}, allowGetters = true)
     private List<Usager> usagers = new ArrayList<>();
 
-
+    public Company(String designation) {
+        this.designation = designation;
+    }
 }

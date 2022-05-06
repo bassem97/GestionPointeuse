@@ -1,6 +1,7 @@
 package com.spring.gestionpointeuse;
 
 import com.spring.gestionpointeuse.Config.seeder.RoleSeeder;
+import com.spring.gestionpointeuse.Config.seeder.SeedByOrder;
 import com.spring.gestionpointeuse.Controller.FonctionController;
 import com.spring.gestionpointeuse.Entity.Usager;
 import com.spring.gestionpointeuse.Repository.UsagerRepository;
@@ -9,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.env.Environment;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import javax.annotation.PostConstruct;
@@ -32,7 +35,7 @@ public class GestionPointeuseApplication {
     private UsagerRepository usagerRepository;
 
     @Autowired
-    private RoleSeeder roleSeeder;
+    private SeedByOrder seedByOrder;
 
     public static void main(String[] args) {
         SpringApplication.run(GestionPointeuseApplication.class, args);
@@ -41,7 +44,7 @@ public class GestionPointeuseApplication {
     @PostConstruct
     public void init() throws Exception {
         if (usagerRepository.findAll().isEmpty())
-            roleSeeder.seed();
+            seedByOrder.init();
     }
 
     @EventListener(ApplicationReadyEvent.class)
@@ -50,7 +53,8 @@ public class GestionPointeuseApplication {
         // Port
         String port = environment.getProperty("server.port");
 
-        browse("http://localhost:"+port+"/swagger-ui/index.html");
+        // Uncomment this if u want to open Swagger on browser after run
+//        browse("http://localhost:"+port+"/swagger-ui/index.html");
     }
 
     public static void browse(String url) {
@@ -69,6 +73,13 @@ public class GestionPointeuseApplication {
                 e.printStackTrace();
             }
         }
+    }
+
+
+    // Bean for password encoder
+    @Bean
+    public BCryptPasswordEncoder encoder(){
+        return new BCryptPasswordEncoder();
     }
 
 

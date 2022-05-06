@@ -9,10 +9,18 @@ public class SeedByOrder {
 
     @Autowired
     private RoleSeeder roleSeeder;
+    @Autowired
+    private CompanySeeder companySeeder;
+    @Autowired
+    private FonctionSeeder fonctionSeeder;
+
+
 
     public void init() throws Exception {
 
         roleSeeder.seed();
+        companySeeder.seed();
+        fonctionSeeder.seed();
 
     }
 
