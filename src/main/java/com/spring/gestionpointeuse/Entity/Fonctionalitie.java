@@ -23,18 +23,20 @@ public class Fonctionalitie implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idUsager")
-//    @JsonIgnoreProperties({"services"})
+    @JsonIgnoreProperties({"fonctionalities"})
     private Usager usager;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idFonction")
-//    @JsonIgnoreProperties({"services"})
+    @JsonIgnoreProperties({"fonctionalities"})
     private Fonction fonction;
 
-    public Fonctionalitie(Boolean lecture, Boolean ajout, Boolean modif, Boolean supprime) {
+    public Fonctionalitie(Fonction fonction,Boolean lecture, Boolean ajout, Boolean modif, Boolean supprime,Usager usager) {
+        this.fonction = fonction;
         this.lecture = lecture;
         this.ajout = ajout;
         this.modification = modif;
         this.suppression = supprime;
+        this.usager = usager;
     }
 }

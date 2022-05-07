@@ -1,6 +1,6 @@
 package com.spring.gestionpointeuse.Entity;
 
-public enum Sexe {
+public enum SEXE {
     homme,
     femme,
     autre

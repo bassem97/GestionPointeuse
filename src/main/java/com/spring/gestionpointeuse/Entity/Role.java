@@ -1,5 +1,6 @@
 package com.spring.gestionpointeuse.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
@@ -20,7 +21,7 @@ public class Role implements Serializable {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "idRole")
     @ApiModelProperty(hidden = true)
-//    @JsonIgnoreProperties(value = {"produit"}, allowGetters = true)
+    @JsonIgnoreProperties({"role"})
     private List<Usager> usagers = new ArrayList<>();
 
     public Role(String role) {

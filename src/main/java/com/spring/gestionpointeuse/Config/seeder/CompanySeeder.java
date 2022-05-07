@@ -13,13 +13,15 @@ public class CompanySeeder {
 
     @Autowired
     private CompanyRepository companyRepository;
-    public Company company1 = new Company("company 1");
+    public Company company1;
 
-    public Company company2 = new Company("company 2");
+    public Company company2;
 
 
     public void seed(){
         if(companyRepository.findAll().isEmpty()){
+            company1  = new Company("company 1");
+            company2  = new Company("company 2");
             companyRepository.save(company1);
             companyRepository.save(company2);
         }

@@ -3,6 +3,7 @@ package com.spring.gestionpointeuse.Config.seeder;
 import org.hibernate.type.ByteType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import springfox.documentation.annotations.ApiIgnore;
 
 @Component
 public class SeedByOrder {
@@ -14,6 +15,14 @@ public class SeedByOrder {
     @Autowired
     private FonctionSeeder fonctionSeeder;
 
+    @Autowired
+    private DetailSeeder detailSeeder;
+
+    @Autowired
+    private UsagerSeeder usagerSeeder;
+
+    @Autowired
+    private FonctionaliteSeeder fonctionalitieSeeder;
 
 
     public void init() throws Exception {
@@ -21,6 +30,9 @@ public class SeedByOrder {
         roleSeeder.seed();
         companySeeder.seed();
         fonctionSeeder.seed();
+        usagerSeeder.seed();
+        fonctionalitieSeeder.seed();
+        detailSeeder.seed();
 
     }
 

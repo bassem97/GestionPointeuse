@@ -11,10 +11,12 @@ public class RoleSeeder {
 
     @Autowired
     private RoleRepository roleRepository;
-    public Role admin = new Role("ADMIN");
-    public Role client = new Role("CLIENT");
+    public Role admin;
+    public Role client;
 
     public void seed(){
+        admin = new Role("ADMIN");
+       client = new Role("CLIENT");
         if(roleRepository.findAll().isEmpty()){
             roleRepository.save(admin);
             roleRepository.save(client);

@@ -1,5 +1,7 @@
 package com.spring.gestionpointeuse.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,12 +30,17 @@ public class Details implements Serializable {
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "idUsager", nullable = false)
+    @JsonIgnore
     private Usager usager;
 
-
-
-
-
-
-
+    public Details(Usager usager,String adresse, String webstite, String github, String linkedin, String mobile, String phone, String profession) {
+        this.usager = usager;
+        this.adresse = adresse;
+        this.webstite = webstite;
+        this.github = github;
+        this.linkedin = linkedin;
+        this.mobile = mobile;
+        this.phone = phone;
+        this.profession = profession;
+    }
 }

@@ -22,7 +22,6 @@ public class UsagerServiceImpl implements IUsagerService , ICrudService<Usager,L
     @Override
     public Usager add(Usager usager) {
         usager.setPassword(bcryptEncoder.encode(usager.getPassword()));
-
         return usagerRepository.save(usager);
     }
 
