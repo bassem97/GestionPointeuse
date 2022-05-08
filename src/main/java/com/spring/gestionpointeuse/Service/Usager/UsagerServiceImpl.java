@@ -62,4 +62,8 @@ public class UsagerServiceImpl implements IUsagerService , ICrudService<Usager,L
     }
 
 
+    @Override
+    public Usager findByEmail(String email) {
+        return usagerRepository.findByEmail(email);
+    }
 }
