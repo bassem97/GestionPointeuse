@@ -31,6 +31,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    private static final String[] AUTH_WHITELIST = {
+            "/swagger-resources/**",
+            "/swagger-ui.html",
+            "/v2/api-docs",
+            "/webjars/**"
+    };
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf()
@@ -38,6 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements WebM
                 .authorizeRequests()
 //                .antMatchers("/**").permitAll()
                 .antMatchers("/auth/login").permitAll()
+                .antMatchers(AUTH_WHITELIST).permitAll()
                 .anyRequest()
                 .authenticated()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
