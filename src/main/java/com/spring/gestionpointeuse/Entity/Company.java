@@ -24,6 +24,13 @@ public class Company implements Serializable {
     @JsonIgnoreProperties({"company"})
     private List<Usager> usagers = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idCompany")
+    @ApiModelProperty(hidden = true)
+    @JsonIgnoreProperties({"company"})
+    private List<ProfilCalendaire> profilCalendaires = new ArrayList<>();
+
+
     public Company(String designation) {
         this.designation = designation;
     }
