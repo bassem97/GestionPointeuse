@@ -4,9 +4,11 @@ import com.spring.gestionpointeuse.Entity.Details;
 import com.spring.gestionpointeuse.Entity.ProfilCalendaire;
 import com.spring.gestionpointeuse.Repository.ProfilCalendaireRepository;
 import com.spring.gestionpointeuse.Service.ICrudService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ProfilCalendaireServiceImpl implements IProfilCalendaireService, ICrudService<ProfilCalendaire,Long> {
 
     private ProfilCalendaireRepository profilCalendaireRepository;
@@ -46,6 +48,8 @@ public class ProfilCalendaireServiceImpl implements IProfilCalendaireService, IC
 
     @Override
     public ProfilCalendaire findById(Long id) {
-        return profilCalendaireRepository.findById(id).get();
+        return profilCalendaireRepository.findById(id).isPresent() ?
+                profilCalendaireRepository.findById(id).get() :
+                null;
     }
 }
