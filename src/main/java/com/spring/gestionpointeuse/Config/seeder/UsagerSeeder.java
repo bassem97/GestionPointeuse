@@ -6,6 +6,7 @@ import com.spring.gestionpointeuse.Service.Usager.UsagerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -28,8 +29,8 @@ public class UsagerSeeder {
     public void seed() {
 
         if(usagerService.findAll().isEmpty()){
-            usager1 = new Usager("bassem", "jadoui", "bassem97","bassemjadoui1996@gmail.com","123456", SEXE.homme, new Date(1997 , Calendar.MAY,20),roleSeeder.admin,companySeeder.company1);
-            usager2 =  new Usager("taher", "Hosseyni", "taher2022","taherhoseyni@gmail.com","123456", SEXE.homme, new Date(1997 , Calendar.MAY,20),roleSeeder.client,companySeeder.company2);
+            usager1 = new Usager("bassem", "jadoui", "bassem97","bassemjadoui1996@gmail.com","123456", SEXE.homme, LocalDate.of(1997,Calendar.MAY,20),roleSeeder.admin,companySeeder.company1);
+            usager2 =  new Usager("taher", "Hosseyni", "taher2022","taherhoseyni@gmail.com","123456", SEXE.homme, LocalDate.of(1997,Calendar.MAY,20),roleSeeder.client,companySeeder.company2);
             usagerService.add(usager1);
             usagerService.add(usager2);
         }

@@ -5,9 +5,11 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -29,7 +31,10 @@ public class Usager implements Serializable {
     private String badge;
     private String numero;
     private SEXE sexe;
-    private Date dateNaissance;
+
+
+    private LocalDate dateNaissance;
+
     private Date dateInscrit;
 
 
@@ -62,7 +67,7 @@ public class Usager implements Serializable {
         dateInscrit = new Date();
     }
 
-    public Usager(String nom, String prenom, String username, String email, String password, SEXE sexe, Date dateNaissance, Role role, Company company) {
+    public Usager(String nom, String prenom, String username, String email, String password, SEXE sexe, LocalDate  dateNaissance, Role role, Company company) {
         fonctionalities = new ArrayList<>();
         dateInscrit = new Date();
         this.nom = nom;
