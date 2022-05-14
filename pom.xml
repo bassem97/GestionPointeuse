@@ -78,6 +78,23 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>exampledata</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.vaadin/flow-data -->
+        <!-- https://mvnrepository.com/artifact/com.vaadin/vaadin-core -->
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-core</artifactId>
+            <version>23.0.9</version>
+        </dependency>
+
+
+
+
+
     </dependencies>
 
     <build>
