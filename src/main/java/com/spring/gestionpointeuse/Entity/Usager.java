@@ -50,6 +50,12 @@ public class Usager implements Serializable {
     @JsonIgnoreProperties({"usager"})
     private List<Evenement> evenements;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idUsager")
+    @ApiModelProperty(hidden = true)
+    @JsonIgnoreProperties({"usager"})
+    private List<Absence> absences;
+
     @OneToOne(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
             mappedBy = "usager")

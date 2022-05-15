@@ -69,7 +69,7 @@ public class GestionPointeuseApplication {
         String port = environment.getProperty("server.port");
 
         // Uncomment this if u want to open Swagger on browser after run
-//        browse("http://localhost:"+port+"/swagger-ui/index.html");
+        browse("http://localhost:"+port+"/swagger-ui/index.html");
     }
 
     public static void browse(String url) {
