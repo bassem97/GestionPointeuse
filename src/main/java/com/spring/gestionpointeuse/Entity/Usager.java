@@ -44,13 +44,16 @@ public class Usager implements Serializable {
     @JsonIgnoreProperties({"usager"})
     private List<Fonctionalitie> fonctionalities;
 
-
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idUsager")
+    @ApiModelProperty(hidden = true)
+    @JsonIgnoreProperties({"usager"})
+    private List<Evenement> evenements;
 
     @OneToOne(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
             mappedBy = "usager")
     private Details details;
-
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idRole")

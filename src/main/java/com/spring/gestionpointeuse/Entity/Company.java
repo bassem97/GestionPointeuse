@@ -36,6 +36,12 @@ public class Company implements Serializable {
     @JsonIgnoreProperties({"company"})
     private List<ProfilSalaire> profilSalaires = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idCompany")
+    @ApiModelProperty(hidden = true)
+    @JsonIgnoreProperties({"company"})
+    private List<TypeAbsence> typeAbsences = new ArrayList<>();
+
 
     public Company(String designation) {
         this.designation = designation;
