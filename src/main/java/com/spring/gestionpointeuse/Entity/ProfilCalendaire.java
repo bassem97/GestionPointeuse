@@ -31,8 +31,14 @@ public class ProfilCalendaire implements Serializable {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "idProfilCalendaire")
     @ApiModelProperty(hidden = true)
-    @JsonIgnoreProperties({"company"})
+    @JsonIgnoreProperties({"profilCalendaire"})
     private List<HorraireSpecifique> horraireSpecifique = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idProfilCalendaire")
+    @ApiModelProperty(hidden = true)
+    @JsonIgnoreProperties({"profilCalendaire"})
+    private List<SalaireCalendaire> salaireCalendaires = new ArrayList<>();
 
 
     public ProfilCalendaire(String designation, Time couvrant, Time definition, Time enrcetee, boolean usePointeuse, Company company) {
