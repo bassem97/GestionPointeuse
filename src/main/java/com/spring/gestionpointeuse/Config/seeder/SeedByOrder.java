@@ -1,5 +1,6 @@
 package com.spring.gestionpointeuse.Config.seeder;
 
+import com.spring.gestionpointeuse.Entity.ProfilCalendaire;
 import org.hibernate.type.ByteType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,6 +25,9 @@ public class SeedByOrder {
     @Autowired
     private FonctionaliteSeeder fonctionalitieSeeder;
 
+    @Autowired
+    private ProfilCalendaireSeeder profilCalendaireSeeder;
+
 
     public void init() throws Exception {
 
@@ -33,6 +37,7 @@ public class SeedByOrder {
         usagerSeeder.seed();
         fonctionalitieSeeder.seed();
         detailSeeder.seed();
+        profilCalendaireSeeder.seed();
 
     }
 

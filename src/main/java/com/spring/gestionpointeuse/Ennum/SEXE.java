@@ -1,4 +1,4 @@
-package com.spring.gestionpointeuse.Entity;
+package com.spring.gestionpointeuse.Ennum;
 
 public enum SEXE {
     homme,

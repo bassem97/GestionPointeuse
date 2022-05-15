@@ -1,6 +1,6 @@
 package com.spring.gestionpointeuse.Config.seeder;
 
-import com.spring.gestionpointeuse.Entity.SEXE;
+import com.spring.gestionpointeuse.Ennum.SEXE;
 import com.spring.gestionpointeuse.Entity.Usager;
 import com.spring.gestionpointeuse.Service.Usager.UsagerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.Calendar;
-import java.util.Date;
 
 @Component
 public class UsagerSeeder {

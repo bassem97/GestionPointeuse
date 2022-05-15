@@ -31,8 +31,8 @@ public class CompanySeeder {
 
             var generator = new ExampleDataGenerator<>(Company.class, LocalDateTime.now());
             generator.setData(Company::setDesignation, DataType.COMPANY_NAME);
-            var stopWatch = new StopWatch(); stopWatch.start();
-            List<Company> companies = generator.create(100, new Random().nextInt());
+            StopWatch stopWatch = new StopWatch(); stopWatch.start();
+            List<Company> companies = generator.create(50, new Random().nextInt());
 
             companyRepository.saveAll(companies);
 
